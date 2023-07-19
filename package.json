@@ -1,0 +1,34 @@
+{
+  "name": "ne-poc-genai",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "npm-watch"
+  },
+  "watch": {
+    "start": {
+      "patterns": [
+        "src",
+        "test"
+      ],
+      "extensions": "js,jsx",
+      "ignore": "src/vendor/external.min.js",
+      "quiet": true,
+      "legacyWatch": true,
+      "delay": 2500,
+      "runOnChangeOnly": false
+    }
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/datastore": "^7.5.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "npm-watch": "^0.11.0",
+    "serve": "^14.2.0"
+  }
+}
