@@ -10,7 +10,7 @@ const port = process.env.PORT || "8000";
 app.use(cors());
 
 async function queryEntities() {
-    const kind = 'summery_kind';
+    const kind = 'NEPubProd';
     const query = datastore.createQuery(kind);
     const [entities] = await datastore.runQuery(query);
 

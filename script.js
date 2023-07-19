@@ -39,9 +39,13 @@ poll(
         data.forEach((item) => {
             const row = document.createElement("tr");
 
-            const idCell = document.createElement("td");
-            idCell.textContent = item.summery;
+            const idCell = document.createElement('td');
+            idCell.textContent = item.title;
             row.appendChild(idCell);
+  
+            const nameCell = document.createElement('td');
+            nameCell.textContent = item.bibliography_citation;
+            row.appendChild(nameCell);
 
             tableBody.appendChild(row);
         });

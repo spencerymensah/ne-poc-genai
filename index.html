@@ -5,44 +5,75 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all" />
     <title>NE POC</title>
 </head>
 
-<body>
+<body class="ne">
     <main>
-        <h1>NE POC</h1>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                        aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li id="t1"><a target="_blank" href="https://publications.naturalengland.org.uk">Public</a></li>
+                        <li id="t2"><a href="/admin">Home</a></li>
+                        <li id="t3"><a href="/admin/publications">Records</a></li>
+                        <li id="t4"><a href="/admin/categories">Categorisation</a></li>
+                        <li id="t5"><a href="/admin/users">Users</a></li>
+                        <li id="t6"><a href="/admin/roles">Roles</a></li>
+                        <li id="t7"><a href="/admin/manage">Administration</a></li>
+                        <li><a
+                                href="https://natural-england-dev.ew.r.appspot.com/_ah/logout?continue=https://accounts.google.com/Logout%3Fcontinue%3Dhttps://ew.appengine.google.com/_ah/logout%253Fcontinue%253Dhttps://google.com/url%25253Fsa%25253DD%252526q%25253Dhttps://natural-england-dev.ew.r.appspot.com/%252526ust%25253D1689862588635602%252526usg%25253DAOvVaw3a22SD46QOEM333HsIheXs%26service%3Dah">Sign
+                                out</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div id="ne-banner" class="container">
+            <div id="ne-banner-text">Access to Evidence</div>
+            <div id="ne-banner-icon">
+                <a href="/"><img src="/images/NE-logo.png" alt="Natural England home"></a>
+            </div>
+        </div>
 
         <iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
 
-        <form action="http://storage.googleapis.com/ancoris-sandbox" target="dummyframe" method="post"
-            enctype="multipart/form-data">
-            <input type="hidden" name="key" value="${filename}" />
-            <input type="hidden" name="success_action_status" value="201" />
-            <input type="file" name="file">
-            <input type="submit" value="Upload">
-        </form>
 
-        <style>
-            table {
-                border-collapse: collapse;
-                border-spacing: 10px;
-            }
+        <div  class="container main">
+            <form action="http://storage.googleapis.com/parsed-publication-pdfs/5642368648740864" target="dummyframe"
+                method="post" enctype="multipart/form-data">
+                
+                <input type="hidden" name="key" value="${filename}" />
+                <input type="hidden" name="success_action_status" value="201" />
+                <input type="file" name="file">
+                <button type="submit" role="button" id="save_blob" name="save_blob"
+                    class="btn btn-primary">Upload</button>
+            </form>
+            <div style="padding-top: 30px;">
+                <table id="table-attachments" class="table table-bordered table-striped ">
+                    <thead>
+                        <tr>
+                            <th>Title</th>
+                            <th>Bibliography Citation</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
 
-            td {
-                padding: 10px;
-                border: 1px solid black;
-            }
-        </style>
+        </div>
 
-
-        <table id="sumTable">
-            <thead>
-                <tr>
-                    <th>Summary</th>
-                </tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-        </table>
     </main>
     <script src="script.js"></script>
 </body>
