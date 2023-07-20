@@ -1,14 +1,16 @@
 function fetchFromAPI() {
     fetch("http://localhost:8000/")
         .then(function (response) {
+
             return response.json();
         })
         .then(function (data) {
             const tableBody = document.getElementById("tableBody");
 
             const tableRow = document.getElementsByClassName("rowData");
+            console.log(tableRow)
             if (tableRow.length > 0){
-                element.remove(tableRow);
+                document.querySelectorAll('.rowData').forEach(e => e.remove());
             }
             
 
