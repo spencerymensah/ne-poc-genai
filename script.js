@@ -8,7 +8,6 @@ function fetchFromAPI() {
             const tableBody = document.getElementById("tableBody");
 
             const tableRow = document.getElementsByClassName("rowData");
-            console.log(tableRow)
             if (tableRow.length > 0){
                 document.querySelectorAll('.rowData').forEach(e => e.remove());
             }
